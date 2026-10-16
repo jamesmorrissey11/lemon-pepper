@@ -1,4 +1,4 @@
-import 'next/dist/compiled/server-only';
+import 'server-only';
 
 /**
  * Validated environment values available only to server integrations.

@@ -6,7 +6,7 @@ import {
   searchWithSerper,
 } from './serper-client';
 
-vi.mock('next/dist/compiled/server-only', () => ({}));
+vi.mock('server-only', () => ({}));
 
 const TEST_API_KEY = 'test-serper-api-key';
 

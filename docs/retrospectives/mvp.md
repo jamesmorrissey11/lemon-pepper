@@ -1,9 +1,9 @@
 # MVP Retrospective
 
-> Evidence cutoff: 2026-10-16, before the Wave 3 application stories (#12 and #14) merged.
+> Evidence cutoff: 2026-10-16, after the Wave 3 application stories (#12 and #14) merged and the
+> final local smoke test completed.
 
-This retrospective uses repository and GitHub history as evidence. Wave 1 and Wave 2 values are
-observed; Wave 3 values remain pending rather than being inferred from work still under review.
+This retrospective uses repository and GitHub history plus sanitized validation results as evidence.
 
 ## Wave Outcomes
 
@@ -11,7 +11,7 @@ observed; Wave 3 values remain pending rather than being inferred from work stil
 |------|------------------|
 | 1 — Foundation | Story PRs #5 and #15 merged with project context, secret boundaries, the Next.js scaffold, shared contracts, and executable validation. |
 | 2 — Capabilities | Story PRs #18, #19, and #20 merged independent ranking, accessible components, and the server-only Serper client. Their story-owned source files did not overlap. |
-| 3 — Integration | Pending final review of the application PRs for #12 and #14 and this quality-gate story (#13). No final Wave 3 metric is reported yet. |
+| 3 — Integration | Story PRs #24 and #25 merged the search API and integrated UI. PR #23 adds CI, the runbook, and this retrospective after the final review gate. |
 
 ## Observed Wave 1–2 Evidence
 
@@ -41,23 +41,21 @@ acceptance, while the rework row separately preserves later corrective evidence.
    a follow-up issue.
 3. Verify dependency package names and public registry availability before the first implementation
    commit.
-4. At the Wave 3 gate, run the README smoke checklist without retaining credentials or result data,
-   then record sanitized pass/fail evidence only.
+4. Keep manual smoke evidence sanitized: record counts and pass/fail outcomes, not credentials or
+   live result content.
 5. Recalculate first-pass acceptance after all Wave 3 PRs reach a terminal review state, and keep
    review findings distinct from automated test failures.
 
-## Wave 3 — Pending Final Review
+## Wave 3 Final Review
 
-Update this table only after the application PRs for #12 and #14 merge and the #13 PR completes its
-final review gate.
+PRs #24 and #25 each passed direct diff review and merged from one implementation commit. PR #23
+uses a planned follow-up commit to record final evidence after those application stories merged;
+that evidence-only update is not corrective implementation rework.
 
-| Final Wave 3 metric | Status |
-|---------------------|--------|
-| First-pass acceptance | **Pending** — inspect final commit and review history for the three Wave 3 story PRs. |
-| Rework | **Pending** — count corrective commits or requested changes before merge. |
-| Review findings | **Pending** — record submitted findings and their fixed, accepted, or deferred disposition. |
-| Merge conflicts | **Pending** — inspect the final merge records and overlapping files. |
-| Manual smoke result | **Pending** — record pass/fail only; do not retain credentials or live result content. |
-
-This section and table are the single location for the final Wave 3 figures. Do not replace
-`Pending` values until the linked application work and review evidence exist.
+| Final Wave 3 metric | Observation |
+|---------------------|-------------|
+| First-pass acceptance | 3 of 3 stories (100%) were accepted without corrective implementation changes. |
+| Rework | Zero corrective implementation commits. PR #23's second commit is the planned final evidence capture. |
+| Review findings | Zero blocking findings. Direct diff review, lint, tests, production builds, CodeQL, and action analysis passed. A test-discovery failure caused by mounted worktrees was classified as harness isolation, not a product defect. |
+| Merge conflicts | Zero. The API, UI, and CI/runbook stories retained non-overlapping file ownership. |
+| Manual smoke result | **Passed.** The page returned HTTP 200; default and refined live searches completed with ranked results; all seven links in the refined run used HTTP(S); and an interrupted request produced a safe network-failure message. No credential or result content was retained. |

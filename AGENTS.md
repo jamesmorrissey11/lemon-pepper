@@ -1,4 +1,4 @@
-# [Project Name]
+# lemon-pepper
 
 > **Universal agent entry point.** Any agent reading this repository cold starts here.
 > This file is both orientation reference and onboarding orchestrator.
@@ -10,6 +10,20 @@
 This repository is built on the **Agentic-Agile Template** — a starter framework for teams adopting structured human-agent collaboration. It provides the process layer that makes agent partnerships repeatable: structured backlogs, spec-first stories, platform adapter context files, built-in governance, and continuous measurement.
 
 **This file (`AGENTS.md`) is the single canonical entry point for all AI coding agents.** Read it completely before taking any action in the repository. It detects which state the repository is in and routes you to the right starting point.
+
+---
+
+## Project Configuration
+
+| Setting | Selection |
+|---------|-----------|
+| Project | `lemon-pepper` |
+| Agent tool | GitHub Copilot |
+| Issue tracker | GitHub Issues |
+| CI/CD | GitHub Actions |
+| Contribution framework | Template defaults from `CONTRIBUTING.md` |
+
+GitHub Issues is ready through `.github/ISSUE_TEMPLATE/agentic-story.md`. GitHub Actions is the selected CI/CD system, but its workflow remains intentionally unconfigured until the project's technology stack and validation commands are defined.
 
 ---
 

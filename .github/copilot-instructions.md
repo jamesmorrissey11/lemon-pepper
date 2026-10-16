@@ -1,17 +1,26 @@
-# Copilot Instructions
+# Copilot Instructions for lemon-pepper
 
-> **Stub:** The full Copilot instructions have moved. See the path below.
+## Project Context
 
-## Where to Find the Full Content
+`lemon-pepper` uses the Agentic-Agile workflow for structured human-agent collaboration. Read `AGENTS.md` before starting work; it is the canonical project entry point and defines the repository workflow, scope expectations, and onboarding state.
 
-```
-platform-adapters/agent-tools/github-copilot/copilot-instructions.md
-```
+The product purpose and implementation stack are not yet documented. Do not invent language, framework, architecture, build, or test conventions. Ask the human to define missing project-specific decisions before implementation depends on them.
 
-This stub remains at `.github/copilot-instructions.md` because GitHub auto-discovers it from that path. The adapter's [`quickstart.md`](../platform-adapters/agent-tools/github-copilot/quickstart.md) explains how to copy the full content here when adopting this template in a downstream repo.
+## Working Agreements
 
-## Why This Moved
+- Track every implementation request in GitHub Issues using `.github/ISSUE_TEMPLATE/agentic-story.md`.
+- Preserve the originating human prompt in the issue for retrospective evaluation.
+- Work on a task-specific branch and keep changes within the issue's declared file ownership.
+- Follow `STYLE.md` and the template contribution defaults in `CONTRIBUTING.md`.
+- Use test-driven development when applicable and validate against the issue's acceptance criteria.
+- Surface errors and unresolved decisions explicitly; do not silently guess or report success without evidence.
+- Do not close, implement, or modify issues labeled `sample`; they are read-only onboarding references.
 
-This project uses a three-layer adapter architecture: a universal core, platform-specific adapters
-(`platform-adapters/`), and optional tool-specific files like this one. See `AGENTS.md` in the
-repository root — it is the universal entry point for all AI agents and contributors.
+## Selected Integrations
+
+- **Agent tool:** GitHub Copilot
+- **Issue tracker:** GitHub Issues
+- **CI/CD:** GitHub Actions
+- **Contribution framework:** Template defaults
+
+GitHub Actions is selected, but no workflow should be added until the project language, dependency manager, and required build, lint, and test commands are documented.

@@ -1,6 +1,6 @@
-# Style Guide
+# Lemon Pepper Style Guide
 
-> Customize this guide for your project's conventions. Each section includes placeholder content and examples to adapt.
+These conventions apply to the Next.js and TypeScript application.
 
 ---
 
@@ -8,37 +8,33 @@
 
 ### Language-Specific Conventions
 
-<!-- Replace with your project's language and conventions. -->
-
-**Primary language:** [e.g., TypeScript, Python, Go, Rust]
+**Primary language:** TypeScript with React
 
 | Convention | Rule |
 |-----------|------|
-| Indentation | [e.g., 2 spaces for JS/TS, 4 spaces for Python, tabs for Go] |
-| Line length | [e.g., 100 characters] |
-| Semicolons | [e.g., required / omitted] |
-| Quotes | [e.g., single quotes for strings] |
-| Trailing commas | [e.g., always in multiline] |
+| Indentation | 2 spaces |
+| Line length | 100 characters where practical |
+| Semicolons | Required |
+| Quotes | Single quotes for TypeScript; double quotes for JSX attributes |
+| Trailing commas | Required in multiline structures |
 
 ### Naming Conventions
 
 | Element | Convention | Example |
 |---------|-----------|---------|
-| Variables | [e.g., camelCase] | `userName` |
-| Functions | [e.g., camelCase] | `getUserById` |
-| Classes/Types | [e.g., PascalCase] | `UserService` |
-| Constants | [e.g., UPPER_SNAKE] | `MAX_RETRY_COUNT` |
-| Files | [e.g., kebab-case] | `user-service.ts` |
-| Test files | [e.g., same name + .test] | `user-service.test.ts` |
+| Variables | camelCase | `searchQuery` |
+| Functions | camelCase | `rankSearchResults` |
+| React components and types | PascalCase | `SearchResultCard` |
+| Constants | UPPER_SNAKE_CASE | `DEFAULT_SEARCH_QUERY` |
+| Files | kebab-case except Next.js special files | `search-result-card.tsx` |
+| Test files | source name plus `.test` | `search-result-card.test.tsx` |
 
 ### Formatting Tools
 
-<!-- List the formatters and linters your project uses. -->
-
-- **Formatter:** [e.g., Prettier, Black, gofmt]
-- **Linter:** [e.g., ESLint, pylint, golangci-lint]
-- **Config files:** [e.g., `.prettierrc`, `pyproject.toml`]
-- **Run before commit:** [e.g., `npm run lint`, `make fmt`]
+- **Formatter:** Prettier
+- **Linter:** ESLint with Next.js and TypeScript rules
+- **Test runner:** Vitest with React Testing Library
+- **Run before commit:** `npm run lint`, `npm test`, and `npm run build` when available
 
 ---
 
@@ -51,8 +47,6 @@
 - Remove commented-out code. Use version control, not comments, for history.
 
 ### Doc Comment Format
-
-<!-- Adapt to your language's conventions. -->
 
 ```
 /**
@@ -170,7 +164,7 @@ When working with AI coding agents, these conventions improve output quality:
 
 ### Context Files
 
-- Maintain a `CLAUDE.md` (or equivalent agent context file) at the repo root.
+- Maintain `AGENTS.md` as the canonical context file and `.github/copilot-instructions.md` as the active tool adapter.
 - Keep it current. Outdated context files cause agent drift.
 - Include: project purpose, structure, conventions, process, and validation gates.
 
@@ -178,10 +172,10 @@ When working with AI coding agents, these conventions improve output quality:
 
 ## 6. Hard Bans
 
-<!-- List things that should never appear in your codebase. -->
-
 - No credentials or secrets in source code.
+- No `NEXT_PUBLIC_` exposure of `SERPER_API_KEY`.
+- No direct Serper calls from browser components.
+- No claims that search snippets prove current menu availability.
 - No `TODO` comments without a linked issue.
 - No suppressed linter warnings without a justifying comment.
 - No wildcard imports (import only what you use).
-- [Add your project-specific bans here]

@@ -2,9 +2,28 @@
 
 ## Project Context
 
-`lemon-pepper` uses the Agentic-Agile workflow for structured human-agent collaboration. Read `AGENTS.md` before starting work; it is the canonical project entry point and defines the repository workflow, scope expectations, and onboarding state.
+`lemon-pepper` is a toy Agentic-Agile project that helps users find relevant lemon pepper drop martini results in Atlanta. It uses the Next.js App Router, TypeScript, npm, and a server-side Serper integration.
 
-The product purpose and implementation stack are not yet documented. Do not invent language, framework, architecture, build, or test conventions. Ask the human to define missing project-specific decisions before implementation depends on them.
+Read `AGENTS.md` before starting work; it is the canonical project entry point and defines the architecture, scope boundaries, wave plan, and repository workflow.
+
+## Implementation Conventions
+
+- Keep `SERPER_API_KEY` server-only. Never use a `NEXT_PUBLIC_` variable for it or include it in output, logs, tests, or fixtures.
+- Browser components call the local Next.js API route rather than Serper.
+- Use shared TypeScript contracts for search requests, normalized results, and API errors.
+- Use the platform `fetch` API instead of adding an HTTP client dependency.
+- Validate and normalize user input at the API boundary.
+- Keep result ranking deterministic and explainable; do not represent search snippets as verified menu data.
+- Prefer small React components with accessible labels, semantic HTML, keyboard support, and explicit loading, empty, and error states.
+- Keep the MVP free of persistence, authentication, accounts, maps, reservations, and payments.
+
+## Validation
+
+After the application scaffold establishes the scripts, run the smallest relevant check from:
+
+- `npm run lint`
+- `npm test`
+- `npm run build`
 
 ## Working Agreements
 
@@ -23,4 +42,4 @@ The product purpose and implementation stack are not yet documented. Do not inve
 - **CI/CD:** GitHub Actions
 - **Contribution framework:** Template defaults
 
-GitHub Actions is selected, but no workflow should be added until the project language, dependency manager, and required build, lint, and test commands are documented.
+GitHub Actions will run lint, unit/component tests, and a production build after those scripts are established by the scaffold story.

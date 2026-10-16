@@ -22,8 +22,31 @@ This repository is built on the **Agentic-Agile Template** — a starter framewo
 | Issue tracker | GitHub Issues |
 | CI/CD | GitHub Actions |
 | Contribution framework | Template defaults from `CONTRIBUTING.md` |
+| Application | Next.js App Router with TypeScript |
+| Package manager | npm |
+| Search provider | Serper API |
 
-GitHub Issues is ready through `.github/ISSUE_TEMPLATE/agentic-story.md`. GitHub Actions is the selected CI/CD system, but its workflow remains intentionally unconfigured until the project's technology stack and validation commands are defined.
+GitHub Issues is ready through `.github/ISSUE_TEMPLATE/agentic-story.md`. GitHub Actions is the selected CI/CD system and will be configured after the application scaffold defines executable validation commands.
+
+### Product Goal
+
+Build a simple web UI that helps someone find the best available web results for lemon pepper drop martinis in Atlanta. The user may refine the search with an Atlanta neighborhood or preference, then open source pages from ranked result cards.
+
+### Architecture and Boundaries
+
+- Browser code calls a Next.js server API route; it never calls Serper directly.
+- Server code reads `SERPER_API_KEY`. Never expose the value through a `NEXT_PUBLIC_` variable, response payload, log, fixture, or committed file.
+- Search results are normalized into shared TypeScript contracts before reaching UI components.
+- Ranking is deterministic and explainable from result position and text relevance; do not claim verified menu availability.
+- The MVP has no database, authentication, accounts, maps, reservations, payments, or user-generated reviews.
+
+### Planned Validation
+
+After the scaffold story establishes the scripts, use:
+
+- `npm run lint`
+- `npm test`
+- `npm run build`
 
 ---
 

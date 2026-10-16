@@ -1,9 +1,36 @@
-# Agentic-Agile Template
+# Lemon Pepper Martini Finder
 
 > [!CAUTION]
 > Agentic-Agile methodology is an **active area of investigation** with the potential for unanticipated results. While models and workflows are improving rapidly, agentic development is inherently non-deterministic. Use good judgement and appropriate safeguards before putting AI-generated work-product into production.
 
-A starter template for teams adopting [Agentic-Agile Development](MANIFESTO.md): the practice of producing production-ready software through structured human-agent collaboration.
+A toy project demonstrating [Agentic-Agile Development](MANIFESTO.md) through a real use case: helping someone find highly relevant lemon pepper drop martini results in Atlanta.
+
+## Product Goal
+
+The MVP provides a simple search page that sends an Atlanta-focused query to a server-side endpoint, retrieves live Serper results, ranks the most useful venue pages, and presents concise cards that link users to the source. Users may refine the query with an Atlanta neighborhood or preference, but the application remains intentionally focused on one cocktail and one city.
+
+This is a workflow demonstration rather than a production recommendation engine. Search results are evidence from the public web, not verified menu availability.
+
+## Technology and Architecture
+
+| Concern | Choice |
+|---------|--------|
+| Application | Next.js App Router with TypeScript |
+| Package manager | npm |
+| Search source | Serper API |
+| Secret boundary | `SERPER_API_KEY` is read only by server code |
+| Unit/component tests | Vitest and React Testing Library |
+| CI/CD | GitHub Actions |
+
+The browser calls a Next.js API route. The route validates the request, calls Serper from the server, normalizes and ranks results, and returns a small typed response. No database, authentication, user account, reservation flow, or custom venue inventory is planned.
+
+## Delivery Waves
+
+| Wave | Epic | Outcome |
+|------|------|---------|
+| 1 | Foundation and safe search contract | Secret-safe configuration, project context, application scaffold, and stable interfaces |
+| 2 | Live search capabilities | Independent Serper client, ranking logic, and reusable search UI components |
+| 3 | Integrated MVP and quality | End-to-end search experience, resilient states, accessibility, and CI validation |
 
 ## What is Agentic-Agile Development?
 
